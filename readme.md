@@ -1,7 +1,8 @@
-## Start server
-'''
+## start server
+navigate to a3 directory and run:
+```
 nodemon server
-'''
+```
 
 ## db info
 
@@ -18,6 +19,12 @@ test db @ db4free.net:
 table: 'rectangles'
 
 attr: id (primary key), width, height, color
+
+## start client website
+navigate to client directory and run:
+```
+http-server
+```
 
 ## resources
 

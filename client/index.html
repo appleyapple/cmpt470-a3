@@ -13,25 +13,88 @@
         <div class="container">
             <br>
             <h1>CMPT-470 <small>ASSIGNMENT 3-4</small></h1>
+            <p class="lead">
+                A fully-functioning CRUD application using MVC architecture.
+               
+                <br> > Application assumes inputs are valid (positive ints, valid IDs)
+                <br> > Actions may take a few moments to finish and there is currently no loading indicator; drawing and displaying database rectangles and updating non-existant rectangles are especially slow.
+                <br> > Please open console for loading statuses and db query results
+                <br> > Extras: Draw/display rectangles by smallest to largest area (sort by id by default), display db entries as text
+            </p>
             <br>
         </div>
 
         <div class="container">
-            <form onsubmit="add()">
-                <div class="form-group">
-                    <label for="width">Width:</label><br>
-                    <input type="number" class="form-control" id="width" placeholder="Rectangle width" required><br>
+            <div class="row">
+                <!-- Create rectangle form -->
+                <div class="col">
+                    <h5>Create rectangle</h5>
+                    <form onsubmit="add()">
+                        <div class="form-group">
+                            <label for="new-width">Width:</label><br>
+                            <input type="number" class="form-control" id="new-width" placeholder="Positive int" required><br>
 
-                    <label for="height">Height:</label><br>
-                    <input type="number" class="form-control" id="height" placeholder="Rectangle height" required><br>
+                            <label for="new-height">Height:</label><br>
+                            <input type="number" class="form-control" id="new-height" placeholder="Positive int" required><br>
+                            
+                            <label for="new-color">Color:</label><br>
+                            <input type="color" class="form-control col-2" id="new-color" placeholder="Positive int" required><br>
 
-                    <label for="color">Color:</label><br>
-                    <input type="color" class="form-control" id="color" placeholder="Rectangle color" required><br>
-
-                    <input class="btn btn-dark" type="submit" value="Add">
+                            <input class="btn btn-dark" type="submit" value="Add">
+                        </div>
+                    </form>
                 </div>
+                <!-- Update rectangle form -->
+                <div class="col">
+                    <h5>Update rectangle</h5>
+                    <form onsubmit="update()">
+                        <div class="form-group">
+                            <label for="update-id">ID:</label><br>
+                            <input type="number" class="form-control" id="update-id" placeholder="Rectangle ID" required><br>
+        
+                            <label for="update-width">Width:</label><br>
+                            <input type="number" class="form-control" id="update-width" placeholder="Rectangle width" required><br>
+        
+                            <label for="update-height">Height:</label><br>
+                            <input type="number" class="form-control" id="update-height" placeholder="Rectangle height" required><br>
+        
+                            <label for="update-color">Color:</label><br>
+                            <input type="color" class="form-control col-2" id="update-color" placeholder="Rectangle color" required><br>
 
-            </form>
+                            <input class="btn btn-dark" type="submit" value="Update">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Draw, display db, delete all, sort by buttons -->
+        <br>
+        <div class="container">
+            <div class="row">
+                    <button type="button" class="btn btn-dark" onmouseup="draw()">Draw rectangles</button>
+                    <button type="button" class="btn btn-dark" onmouseup="displayDB()">Display DB</button>
+                    <button type="button" class="btn btn-danger" onmouseup="deleteAll()">Delete All</button>
+                    <div class="col offset-md-6">
+                        <input type="checkbox" class="form-check-input" id="sortByArea" onchange="checkSort()">
+                        <label for="sortByArea">Sort by area</label>
+                    </div>
+                    
+
+            </div>
+        </div>
+        <!-- Canvas -->
+        <div class="container">
+            <div class="row">
+                <canvas id="myCanvas" width="1000" height="1000">Browser does not support canvas element</canvas>
+                <!-- Draw canvas border -->
+                <script>
+                    const canvas = document.getElementById('myCanvas');
+                    const ctx = canvas.getContext('2d');
+
+                    ctx.strokeStlye = '#000000';
+                    ctx.strokeRect(0, 0, 1000, 1000);
+                </script>
+            </div>
         </div>
 
     </body>
