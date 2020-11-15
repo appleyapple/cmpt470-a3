@@ -20,6 +20,8 @@ table: 'rectangles'
 
 attr: id (primary key), width, height, color
 
+CREATE TABLE rectangles ( id SERIAL NOT NULL, width INT(255) NOT NULL, length INT(255) NOT NULL, color VARCHAR(255) NOT NULL, PRIMARY KEY(id) ) ENGINE=InnoDB;
+
 ## start client website
 navigate to client directory and run:
 ```
