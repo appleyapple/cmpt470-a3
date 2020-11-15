@@ -1,4 +1,4 @@
-## start server
+## start app
 navigate to a3 directory and run:
 ```
 nodemon server
@@ -22,11 +22,13 @@ attr: id (primary key), width, height, color
 
 CREATE TABLE rectangles ( id SERIAL NOT NULL, width INT(255) NOT NULL, length INT(255) NOT NULL, color VARCHAR(255) NOT NULL, PRIMARY KEY(id) ) ENGINE=InnoDB;
 
-## start client website
-navigate to client directory and run:
+## start client website 
+~~navigate to client directory and run:~~
 ```
-http-server
+~~http-server~~
 ```
+
+NO LONGER NEEDED, JUST RUN SERVER.JS
 
 ## resources
 

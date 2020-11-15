@@ -10,9 +10,8 @@ app.use(bp.json());
 // cors policy fix
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.json({ message: 'welcome' });
-});
+// serves files in client as landing page
+app.use(express.static('client'));
 
 require('./routes/rectangleRoutes')(app);
 
